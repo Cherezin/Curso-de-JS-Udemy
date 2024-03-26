@@ -9,5 +9,5 @@ class Pessoa{
     }
 }
 
-const p1 = new Pessoa('Alexandre', 'Alves')
+const p1 = new Pessoa('Alexandre', 'Nascimento')
 console.log(p1.falar())
