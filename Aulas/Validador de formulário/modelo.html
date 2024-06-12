@@ -13,19 +13,25 @@
     </header>
     <section class="container">
         <form action="/" method="POST" class="form">
-            <label>Nome: <input type="text" class="nome"></label>
-            <label>Sobrenome: <input type="text" class="sobrenome"></label>
-            <label>CPF: <input type="text" class="cpf"></label>
-            <label>Usuário: <input type="text" class="usuario"></label>
-            <label>Senha: <input type="text" class="senha"></label>
-            <label>Repetir Senha: <input type="text" class="rsenha"></label>
-            <button class="submit">Enviar</button>
-
+            <label>Nome: </label>
+            <input type="text" class="nome valida">
+            <label>Sobrenome: </label>
+            <input type="text" class="sobrenome valida">
+            <label>CPF: </label>
+            <input type="text" class="cpf valida">
+            <label>Usuário: </label>
+            <input type="text" class="usuario valida">
+            <label>Senha: </label>
+            <input type="password" class="senha valida">
+            <label>Repetir Senha: </label>
+            <input type="password" class="rsenha valida">
+            <button type="submit" onclick="click">Enviar</button>
         </form>
     </section>
     <footer>
         <p>&copy; Cheregueledambe </p>
     </footer>
-    <script src="formulário.js"></script>
+    <script src="validador.js"></script>
+    <script src="formulario.js"></script>
 </body>
 </html>
