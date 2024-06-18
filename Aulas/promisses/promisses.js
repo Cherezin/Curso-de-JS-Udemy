@@ -8,7 +8,7 @@ function esperaAi(msg, tempo){
     return new Promise((resolve, reject) => {
         if(typeof msg !== 'string') return reject('INVALID VALUE')
 
-        setTimeout(() => {resolve(msg + ' Passei na promisse')}, tempo)
+        setTimeout(() => resolve(msg), tempo)
     })
 }
 
@@ -48,8 +48,26 @@ const promise = [
 
 //PROMISSE RACE
 
-Promise.race(promise).then(valor => {
+/*Promise.race(promise).then(valor => {
     console.log(valor)
 }).catch(e => {
     console.log(e + ' Não passei na promisse')
-})
+})*/
+
+//PROMISSE RESOLVE
+
+function baixaPagina(){
+    const emCache = false
+
+    if(emCache){
+        return Promise.resolve('Pagina em cache')
+    } else{
+        return esperaAi('Baixei a pagina', 3000)
+    }
+}
+
+baixaPagina()
+    .then(dadosPagina => {
+        console.log(dadosPagina)
+    })
+    .catch(e => console.log(e))
