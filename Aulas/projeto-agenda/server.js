@@ -20,7 +20,6 @@ const path = require('path');
 const helmet = require('helmet')
 const csrf = require('csurf')
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware')
-app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 app.use(helmet())
 app.use(express.json())
@@ -48,8 +47,8 @@ app.set('view engine', 'ejs')
 
 app.use(csrf())
 app.use(middlewareGlobal)
-app.use(csrfMiddleware)
 app.use(checkCsrfError)
+app.use(csrfMiddleware)
 app.use(routes);
 
 app.on('pronto', () => {
