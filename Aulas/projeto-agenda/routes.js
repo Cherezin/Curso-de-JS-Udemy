@@ -1,14 +1,14 @@
 const express = require('express');
 const route = express.Router();
-const homeController = require('./src/controllers/homeController');
-const contatoController = require('./src/controllers/contatoController')
-const {middlewareGlobal} = require('./src/middlewares/middleware')
 
-module.exports = route;
+const homeController = require('./src/controllers/homeController');
+const loginController = require('./src/controllers/loginController');
 
 //Rotas da home
-route.get('/', middlewareGlobal, homeController.homePage);
-route.post('/', homeController.trataPost);
+route.get('/', homeController.index);
 
-//Rotas de contato
-route.get('/contato', contatoController.homePage);
+//Rotas de Login
+route.get('/login/index', loginController.index)
+route.post('/login/register', loginController.register)
+
+module.exports = route;
