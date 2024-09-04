@@ -17,7 +17,7 @@ class Contato{
         this.errors = [];
         this.contato = null;
     };
-
+   
     async register(){
         this.valida();
 
@@ -48,6 +48,12 @@ class Contato{
             telefone: this.body.telefone
         };
     };
+
+    static async buscaPorId(id){
+        const user = await ContatoModel.findById(id)
+        return user;
+    }
+
 }
 
 module.exports = Contato;
