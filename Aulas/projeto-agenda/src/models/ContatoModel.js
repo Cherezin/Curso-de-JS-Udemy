@@ -31,7 +31,9 @@ class Contato{
         // O e-mail precisa ser válido
         if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail inválido')
         if(!this.body.nome) this.errors.push('Nome é um campo obrigatório.')
-        if(!this.body.email && !this.body.telefone) this.errors.push('Pelo menos um contato deve ser enviado: email ou telefone.')
+        if(!this.body.email && !this.body.telefone) {
+            this.errors.push('Pelo menos um contato precisa ser enviado: e-mail ou telefone.');
+        }
     };
 
     cleanUp(){
@@ -49,11 +51,19 @@ class Contato{
         };
     };
 
+    async edit(id){
+        if(typeof id !== 'string') return;
+        this.valida();
+        if(this.errors.length > 0) return;
+        this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {new: true});
+    }
+
     static async buscaPorId(id){
         const user = await ContatoModel.findById(id)
         return user;
     }
 
 }
+
 
 module.exports = Contato;
